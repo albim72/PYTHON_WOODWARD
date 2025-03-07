@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  main_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: main_service_container
+    command: python main.py
+    volumes:
+      - .:/app
+    working_dir: /app
+
+  data_procession_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: data_procession_service_container
+    command: python data_procession.py
+    volumes:
+      - .:/app
+    working_dir: /app
+
+  data_struct_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: data_struct_service_container
+    command: python data_struct.py
+    volumes:
+      - .:/app
+    working_dir: /app
